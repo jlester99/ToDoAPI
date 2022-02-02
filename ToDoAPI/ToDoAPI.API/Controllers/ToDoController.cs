@@ -18,14 +18,13 @@ namespace ToDoAPI.API.Controllers
         ToDoEntities db = new ToDoEntities();
 
         // READ - GET Functionality 
-        //api/Resources - path to get to action 
         public IHttpActionResult GetToDos()
         {
-            //create list to house the resources
+            //create list to house the ToDos
             List<ToDoViewModel> toDos = db.TodoItems.Include("Category").Select(t => new ToDoViewModel()
             {
 
-                //We have now taken all of the resources from the db and need to assign each resource from the db to our Data Transfer Object so we can transport the data.
+                //We have now taken all of the TodoItems from the db and need to assign each TodoItem from the db to our Data Transfer Object so we can transport the data.
 
                 //Assign parameters of the ToDoItems to properties in the DTO
                 TodoId = t.TodoId,
